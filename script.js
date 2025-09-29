@@ -10,19 +10,19 @@ document.addEventListener(`DOMContentLoaded`, function () {
     let username = userEl.value.trim();
     let email = emailEl.value.trim();
     let password = passwordEl.value.trim();
-    console.log(userValue, emailValue, passwordValue);
 
     let isValid = true;
     let messages = [];
-    username.length < 3
-      ? ((isValid = !isValid),
+    username.length <= 3
+      ? ((isValid = false),
         messages.push(`userName should be more than 3 characters`))
       : null;
-    email.includes(`@`) && emailValue.includes(`.`)
+    email.includes(`@`) && email.includes(`.`)
       ? null
-      : ((isValid = !isValid), messages.push(`Email not valid`));
+      : ((isValid = false), messages.push(`Email not valid`));
     password.length < 8
-      ? messages.push(`Password should not be less than 8 characters`)
+      ? ((isValid = false),
+        messages.push(`Password should not be less than 8 characters`))
       : null;
     feedbackDiv.style.display = `block`;
     isValid === true
