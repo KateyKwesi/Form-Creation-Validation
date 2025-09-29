@@ -4,7 +4,7 @@ const userName = document.getElementById("username");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 
-document.addEventListener(`DOMContentLoaded`, () => {
+document.addEventListener(`DOMContentLoaded`, function () {
   form.addEventListener(`submit`, (event) => {
     event.preventDefault();
     let userValue = userName.value.trim();
