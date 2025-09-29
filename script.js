@@ -1,27 +1,27 @@
 const form = document.getElementById("registration-form");
 const feedbackDiv = document.getElementById("form-feedback");
-const userName = document.getElementById("username");
-const email = document.getElementById("email");
-const password = document.getElementById("password");
+const userEl = document.getElementById("username");
+const emailEl = document.getElementById("email");
+const passwordEl = document.getElementById("password");
 
 document.addEventListener(`DOMContentLoaded`, function () {
   form.addEventListener(`submit`, (event) => {
     event.preventDefault();
-    let userValue = userName.value.trim();
-    let emailValue = email.value.trim();
-    let passwordValue = password.value.trim();
+    let username = userEl.value.trim();
+    let email = emailEl.value.trim();
+    let password = passwordEl.value.trim();
     console.log(userValue, emailValue, passwordValue);
 
     let isValid = true;
     let messages = [];
-    userValue.length < 3
+    username.length < 3
       ? ((isValid = !isValid),
         messages.push(`userName should be more than 3 characters`))
       : null;
-    emailValue.includes(`@`) && emailValue.includes(`.`)
+    email.includes(`@`) && emailValue.includes(`.`)
       ? null
       : ((isValid = !isValid), messages.push(`Email not valid`));
-    passwordValue.length < 8
+    password.length < 8
       ? messages.push(`Password should not be less than 8 characters`)
       : null;
     feedbackDiv.style.display = `block`;
